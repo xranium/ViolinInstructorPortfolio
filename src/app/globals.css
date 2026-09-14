@@ -1,0 +1,690 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-vazir), "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-estedad), var(--font-vazir), "Estedad", ui-sans-serif, system-ui, sans-serif;
+  --font-amiri: "Amiri", var(--font-vazir), serif;
+
+  --color-gold: #c9a45c;
+  --color-gold-bright: #e5c87f;
+  --color-ember: #8f6e3b;
+  --color-ivory: #ede6d6;
+  --color-ink: #0b0806;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ————— Warm cinematic dark theme (single, forced dark) ————— */
+:root,
+.dark {
+  --radius: 0.45rem;
+  --background: #0b0806;
+  --foreground: #ede6d6;
+  --card: #14100a;
+  --card-foreground: #ede6d6;
+  --popover: #16110a;
+  --popover-foreground: #ede6d6;
+  --primary: #c9a45c;
+  --primary-foreground: #17120a;
+  --secondary: #1c160e;
+  --secondary-foreground: #d9cfb9;
+  --muted: #191309;
+  --muted-foreground: #a2947c;
+  --accent: #241d11;
+  --accent-foreground: #ede6d6;
+  --destructive: #b3402e;
+  --border: rgba(201, 164, 92, 0.16);
+  --input: rgba(201, 164, 92, 0.2);
+  --ring: rgba(201, 164, 92, 0.55);
+  --chart-1: #c9a45c;
+  --chart-2: #8f6e3b;
+  --chart-3: #e5c87f;
+  --chart-4: #6b532c;
+  --chart-5: #a2947c;
+  --sidebar: #14100a;
+  --sidebar-foreground: #ede6d6;
+  --sidebar-primary: #c9a45c;
+  --sidebar-primary-foreground: #17120a;
+  --sidebar-accent: #241d11;
+  --sidebar-accent-foreground: #ede6d6;
+  --sidebar-border: rgba(201, 164, 92, 0.16);
+  --sidebar-ring: rgba(201, 164, 92, 0.55);
+}
+
+/* ————— Amiri (naskh, for Persian quotes) ————— */
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Amiri-Regular-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "Amiri";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Amiri-Italic-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Amiri-Bold-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Amiri-Regular-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #3a2f1c #0b0806;
+  }
+  /* تجربهٔ موبایل: متنِ درشت‌تر — ریشهٔ rem را در عرضِ تلفن بالا می‌بریم تا
+     همهٔ متن‌های rem-محور (بدنه و عناوین) هم‌جهت بزرگ شوند؛ در md+ به حالتِ
+     دسکتاپ برمی‌گردد. */
+  @media (max-width: 767px) {
+    html {
+      font-size: 17.5px;
+    }
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    /* overflow-x: clip اینجا ممنوع! ظرفِ body نزدیک‌ترین scrollportِ همهٔ
+       position: stickyها می‌شود و پین‌شدنِ گالری و ستونِ آموزش را می‌شکند.
+       برشِ افقی در سطحِ بخش‌ها انجام می‌شود (timeline/teaching) نه در body. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  ::selection {
+    background: #c9a45c;
+    color: #17120a;
+  }
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0806;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a2f1c;
+    border-radius: 99px;
+    border: 2px solid #0b0806;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 164, 92, 0.65);
+  }
+  :focus-visible {
+    outline: 1.5px solid #c9a45c;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+}
+
+/* ————— Cinematic film grain ————— */
+.grain-overlay {
+  position: fixed;
+  inset: -100%;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.052;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  animation: grain-shift 9s steps(6) infinite;
+}
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -2%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ————— Vignette ————— */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 65;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 90% at 50% 45%,
+    transparent 55%,
+    rgba(5, 3, 2, 0.5) 100%
+  );
+}
+
+/* ————— Violin strings decoration ————— */
+.strings-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 0.5;
+}
+.string-line {
+  position: relative;
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(201, 164, 92, 0.28) 22%,
+    rgba(237, 230, 214, 0.4) 50%,
+    rgba(201, 164, 92, 0.28) 78%,
+    transparent 100%
+  );
+  transform-origin: center;
+  animation: string-vibrate 6s ease-in-out infinite;
+}
+@keyframes string-vibrate {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+  35% {
+    transform: translateX(0.7px) scaleX(1.8);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-0.5px) scaleX(1.4);
+  }
+  65% {
+    transform: translateX(0.4px) scaleX(1.7);
+    opacity: 0.8;
+  }
+}
+
+/* ————— Marquee (RTL: flows toward the reading direction) ————— */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl 70s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ————— Vertical decorative text ————— */
+.text-vertical {
+  writing-mode: vertical-rl;
+}
+
+/* ————— Scroll hint ————— */
+.scroll-line {
+  position: relative;
+  width: 1px;
+  height: 56px;
+  overflow: hidden;
+  background: rgba(237, 230, 214, 0.15);
+}
+.scroll-line::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, #c9a45c);
+  animation: scroll-drip 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes scroll-drip {
+  0% {
+    top: -40%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* ————— Utility: hide scrollbar ————— */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ————— سیم‌های تعاملی (PlayableStrings) ————— */
+.ps-line {
+  position: relative;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(201, 164, 92, 0.22) 12%,
+    rgba(237, 230, 214, 0.34) 50%,
+    rgba(201, 164, 92, 0.22) 88%,
+    transparent 100%
+  );
+  transition: filter 0.4s ease, box-shadow 0.4s ease;
+}
+.group:hover .ps-line {
+  filter: brightness(1.4);
+}
+.ps-plucking {
+  transform-origin: center;
+  animation: ps-pluck 0.85s cubic-bezier(0.2, 0.6, 0.35, 1);
+  box-shadow: 0 0 10px rgba(201, 164, 92, 0.55);
+}
+@keyframes ps-pluck {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  12% {
+    transform: scaleY(26) scaleX(1);
+  }
+  26% {
+    transform: scaleY(4) scaleX(1);
+  }
+  40% {
+    transform: scaleY(14) scaleX(1);
+  }
+  55% {
+    transform: scaleY(2) scaleX(1);
+  }
+  70% {
+    transform: scaleY(7) scaleX(1);
+  }
+  85% {
+    transform: scaleY(1.5) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+/* ————— فرم: خط زیرِ فیلدها هنگام فوکوس ————— */
+.bk-field-glow:focus-within {
+  box-shadow: 0 0 0 1px rgba(201, 164, 92, 0.25);
+}
+
+/* ————— صفحهٔ وینیل (بخش آلبوم) ————— */
+.vinyl-disc {
+  background:
+    radial-gradient(circle at 50% 50%, #241c10 0%, #191307 34%, #100c05 60%, #1c1509 78%, #120e06 100%);
+  box-shadow:
+    0 0 0 1px rgba(201, 164, 92, 0.22),
+    0 18px 60px -18px rgba(0, 0, 0, 0.9);
+  filter: brightness(0.9);
+}
+.vinyl-grooves {
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent 0 3px,
+    rgba(237, 230, 214, 0.035) 3px 4px
+  );
+  border-radius: 50%;
+}
+.vinyl-spinning {
+  animation: vinyl-spin 7s linear infinite;
+}
+@keyframes vinyl-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+/* روی موبایل (بدون translate محصور در flex) — چرخشِ ساده */
+.vinyl-spinning.vinyl-static {
+  animation: vinyl-spin-static 7s linear infinite;
+}
+@keyframes vinyl-spin-static {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ————— اکولایزر کوچک (ردیف پخش) ————— */
+.eq-bar {
+  height: 40%;
+  animation: eq-bounce 0.9s ease-in-out infinite alternate;
+}
+@keyframes eq-bounce {
+  0% {
+    height: 22%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* ————— درخششِ طلایی روی واژهٔ تأکیدی ————— */
+.shimmer-gold {
+  background: linear-gradient(
+    100deg,
+    #c9a45c 20%,
+    #f0dfae 42%,
+    #c9a45c 58%,
+    #8f6e3b 80%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-sweep 5.5s ease-in-out infinite;
+}
+@keyframes shimmer-sweep {
+  0%,
+  100% {
+    background-position: 120% 0;
+  }
+  50% {
+    background-position: -20% 0;
+  }
+}
+
+/* ————— دکمهٔ صدای محیط ————— */
+.ambient-on {
+  animation: ambient-pulse 2.6s ease-in-out infinite;
+}
+@keyframes ambient-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 164, 92, 0.35);
+  }
+  55% {
+    box-shadow: 0 0 0 7px rgba(201, 164, 92, 0);
+  }
+}
+
+/* ————— نوارِ مقیاسِ دکمه‌ها (hover bounce کوچک) ————— */
+.btn-breathe {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s;
+}
+.btn-breathe:hover {
+  transform: translateY(-2px);
+}
+
+/* ————— رویدادها: بلیت و شمارش معکوس ————— */
+.ticket-card {
+  transition:
+    border-color 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ticket-card:hover {
+  background-color: rgba(14, 10, 6, 0.85);
+  box-shadow: 0 18px 50px -22px rgba(201, 164, 92, 0.2);
+}
+
+/* نبضِ ظریفِ نقطهٔ شمارش معکوس */
+.cd-blink {
+  animation: countdown-blink 1.6s ease-in-out infinite;
+}
+@keyframes countdown-blink {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ————— پایه: لمس، پاراگراف، لنگرگاهِ بخش‌ها، فوکوس ————— */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* جابه‌جاییِ نرم برای بخش‌ها زیر نوارِ چسبانِ بالا */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ————— پیوندهای متنی: خطِ طلایی که از سمتِ راست رشد می‌کند (RTL) ————— */
+.link-sweep {
+  padding-bottom: 1px;
+  background-image: linear-gradient(90deg, #c9a45c, #e5c87f);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 0% 1px;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-sweep:hover,
+a:hover .link-sweep,
+.group:hover .link-sweep {
+  background-size: 100% 1px;
+}
+
+/* ————— ریزجابه‌جاییِ عنوانِ ردیف‌ها هنگامِ هاور (بدونِ تعارض با فریمر) ————— */
+.hover-nudge {
+  display: inline-block;
+  transition: translate 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .hover-nudge {
+  translate: -2px 0;
+}
+
+/* ————— چاپ (نسخهٔ کاغذی) ————— */
+@media print {
+  .grain-overlay,
+  .vignette,
+  header,
+  .scroll-progress,
+  .cursor-layer,
+  video,
+  .marquee,
+  .playable-strings,
+  [data-sonner-toaster],
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  /* متنِ روشن روی کاغذِ سفید ناخوانا می‌شود — متنِ تیره، بدونِ شفافیت/ماسکِ نمایشی */
+  body * {
+    color: #111 !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+  img {
+    opacity: 1 !important;
+  }
+  section,
+  footer {
+    break-inside: avoid;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ————— کنتراستِ بیشتر (تنظیماتِ سیستم) ————— */
+@media (prefers-contrast: more) {
+  :root {
+    --border: rgba(201, 164, 92, 0.55);
+    --input: rgba(201, 164, 92, 0.55);
+  }
+  body {
+    color: #ede6d6;
+  }
+  header,
+  .ticket-card,
+  input,
+  textarea,
+  select,
+  [data-slot="select-trigger"] {
+    border-color: rgba(201, 164, 92, 0.7) !important;
+  }
+  .link-sweep {
+    background-size: 100% 1px;
+  }
+  :focus-visible {
+    outline-width: 2px;
+  }
+}
+
+/* ————— دور ۵: جزئیات ————— */
+/* ورودی‌ها: کرسرِ طلایی + پُرکردنِ خودکارِ مرورگر روی زمینهٔ تیره
+   (رنگ‌ها با توکن‌های تم هماهنگ‌اند: طلایی #c9a45c، عاجی #ede6d6، زمینهٔ فیلد #120d08) */
+@layer base {
+  input,
+  textarea,
+  select {
+    caret-color: #c9a45c;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ede6d6;
+    -webkit-box-shadow: 0 0 0 1000px #120d08 inset;
+    transition: background-color 9999s ease-out;
+  }
+}
+
+/* ————— Reduced motion ————— */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain-overlay,
+  .string-line,
+  .scroll-line::after,
+  .marquee-track,
+  .ps-plucking,
+  .vinyl-spinning,
+  .vinyl-spinning.vinyl-static,
+  .eq-bar,
+  .shimmer-gold,
+  .ambient-on,
+  .cd-blink {
+    animation: none !important;
+  }
+  .vignette {
+    display: none;
+  }
+}
+
+/* ————— ورودِ بی‌درنگِ صفحه (جایگزینِ پری‌لودر) —————
+   سایت بلافاصله با یک محوِ نرم نمایان می‌شود — نه انتظاری، نه صفحهٔ بارگذاری؛
+   بارگذاریِ ادامهٔ بخش‌ها در پس‌زمینه و هم‌زمان با مشغول‌بودنِ کاربر در HERO ادامه دارد.
+   (قانونِ سراسریِ prefers-reduced-motion در بالا مدتِ انیمیشن را بی‌اثر می‌کند.) */
+@keyframes site-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.site-fade {
+  animation: site-fade-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+

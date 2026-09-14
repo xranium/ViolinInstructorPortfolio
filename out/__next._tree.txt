@@ -1,0 +1,5 @@
+:HL["/_next/static/chunks/3mahhrvz14b61.css","style"]
+:HL["/_next/static/chunks/3os3n612f3cd8.css","style"]
+:HL["/_next/static/media/Estedad_Variable-s.p.3jfqnkpfae9jr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/Vazirmatn_Variable-s.p.3knf6dhh8xxk6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4224,"slots":null}}},"staleTime":300,"buildId":"tSmG53t1ZorlIkPYqC-eb"}
