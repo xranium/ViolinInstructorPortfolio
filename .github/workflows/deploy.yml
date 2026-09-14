@@ -33,7 +33,13 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          echo "Node version:"
+          node --version
+          echo "npm version:"
+          npm --version
+          echo "Building Next.js..."
+          npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
